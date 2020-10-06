@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    username: root
+    password: wan520
+    url: jdbc:mysql:///hotel?serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    schema:
+    - classpath:sql/user.sql
+    - classpath:sql/hotel.sql
+    - classpath:sql/loginer.sql
+    -mvc:
+      hiddenmethod:
+        filter:
+          enabled: true
+  jpa:
+    hibernate:
+      #更新或创建数据表
+      ddl-auto: update
+    #控制台显示sql信息
+    show-sql: true
+  messages:
+    basename: resources/i18n/register, resources/i18n/login
+  thymeleaf:
+    cache: false
