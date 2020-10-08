@@ -31,6 +31,13 @@ public class MyMvcConfig implements WebMvcConfigurer {
         return configurer;
     }
 
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+        registry.addResourceHandler("/images/**").addResourceLocations("file:D:\\IDEAwork\\fly-hotel\\src\\main\\resources\\static\\images\\");
+        registry.addResourceHandler("/static/images/**").addResourceLocations("file:D:\\IDEAwork\\fly-hotel\\src\\main\\resources\\static\\images\\");
+    }
+
     @Bean
     public LocaleResolver localeResolver(){
         return new MyLocaleResolver();
