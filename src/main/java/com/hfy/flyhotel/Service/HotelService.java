@@ -5,6 +5,8 @@ import com.hfy.flyhotel.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class HotelService {
     @Autowired
@@ -21,5 +23,9 @@ public class HotelService {
     public Hotel findHotelById(Integer id) {
         Hotel hotel = hotelRepository.findById(id).get();
         return hotel;
+    }
+
+    public List<Hotel> findByType(String type){
+        return hotelRepository.findByType(type);
     }
 }
