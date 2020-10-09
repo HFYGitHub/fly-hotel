@@ -54,6 +54,18 @@
 
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 <!--					<h2><a class="btn btn-sm btn-success" href="user" th:href="@{/user}">添加用户</a></h2>-->
+					<form class="offset-md-3 col-md-5 input-group" th:action="@{/userNameBy}" method="get">
+						<input name="name" class="form-control" type="text" th:placeholder="请输入要查询的名字"/>
+						<input class="btn btn-info " type="submit" />
+					</form>
+					<br/>
+					<form class="offset-md-3 col-md-5 input-group" th:action="@{/userTelBy}" method="get">
+						<input name="tel" class="form-control" type="text" th:placeholder="请输入要查询的手机号"/>
+						<input class="btn btn-info " type="submit" />
+					</form>
+					<br/>
+
+					<br/>
 					<div class="table-responsive">
 						<table class="table table-striped table-sm">
 							<thead>
