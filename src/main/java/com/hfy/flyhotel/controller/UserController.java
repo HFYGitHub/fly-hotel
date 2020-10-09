@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
 
@@ -44,6 +45,28 @@ public class UserController {
         mv.setViewName("user/add");
         return mv;
     }
+
+    //根据名字查找用户
+    @GetMapping("/userNameBy")
+    public ModelAndView findUserByName(HttpServletRequest request){
+        List<User> users = userRepository.findByName(request.getParameter("name"));
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("users",users);
+        mv.setViewName("user/list");
+        return mv;
+    }
+
+    //根据身份证查找用户
+    @GetMapping("/userTelBy")
+    public ModelAndView findUserByIdNumber(HttpServletRequest request){
+        String s = request.getParameter("tel");
+        List<User> users = userRepository.findByTel(s);
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("users",users);
+        mv.setViewName("user/list");
+        return mv;
+    }
+
 
     //删除用户
     @PostMapping("/user/{id}")
